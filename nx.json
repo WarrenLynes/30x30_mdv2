@@ -10,5 +10,19 @@
     "tslint.json": "*",
     "nx.json": "*"
   },
-  "projects": {}
+  "projects": {
+    "cars": {
+      "tags": []
+    },
+    "cars-e2e": {
+      "tags": [],
+      "implicitDependencies": ["cars"]
+    },
+    "material": {
+      "tags": []
+    },
+    "core-data": {
+      "tags": []
+    }
+  }
 }
