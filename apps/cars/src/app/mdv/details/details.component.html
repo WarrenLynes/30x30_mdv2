@@ -1,0 +1,29 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>
+      <h1>
+        <span *ngIf="currentCar.id; else elseBlock">{{currentCar.title}}</span>
+        <ng-template #elseBlock>Select an car</ng-template>
+      </h1>
+    </mat-card-title>
+  </mat-card-header>
+  <form (submit)="saved.emit(currentCar)" #detailForm="ngForm">
+    <mat-card-content>
+      <mat-form-field class="full-width">
+        <input matInput placeholder="Title" [(ngModel)]="currentCar.title" type="text" name="title" required>
+      </mat-form-field>
+      <mat-form-field class="full-width">
+        <textarea matInput placeholder="Details" [(ngModel)]="currentCar.details" type="text" name="details" required></textarea>
+      </mat-form-field>
+      <section class="full-width">
+        <h4>{{currentCar['max-speed'] || 0 }} MPH</h4>
+        <mat-slider class="full-width" min="0" [max]="200" thumbLabel name="tasteLevel" [(ngModel)]="currentCar['max-speed']" required>
+        </mat-slider>
+      </section>
+    </mat-card-content>
+    <mat-card-actions>
+      <button type="submit" mat-button color="primary" [disabled]="!detailForm.valid">Save</button>
+      <button type="button" mat-button (click)="cancelled.emit(currentCar)">Cancel</button>
+    </mat-card-actions>
+  </form>
+</mat-card>

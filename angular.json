@@ -22,7 +22,10 @@
             "tsConfig": "apps/cars/tsconfig.app.json",
             "aot": false,
             "assets": ["apps/cars/src/favicon.ico", "apps/cars/src/assets"],
-            "styles": ["apps/cars/src/styles.scss"],
+            "styles": [
+              "apps/cars/src/styles.scss",
+              "apps/cars/src/theme.scss"
+            ],
             "scripts": []
           },
           "configurations": {

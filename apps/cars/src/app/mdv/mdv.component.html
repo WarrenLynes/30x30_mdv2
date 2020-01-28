@@ -1,1 +1,19 @@
-<p>mdv works!</p>
+<div class="container">
+  <!-- Projects List -->
+  <div class="col-50">
+    <mdv2-list
+      [cars]="cars$ | async"
+      (selected)=selectCar($event)
+      (deleted)="deleteCar($event)"
+    >
+    </mdv2-list>
+  </div>
+  <!-- Car Details-->
+  <div class="col-50">
+    <mdv2-details
+      [project]="selectedCar"
+      (saved)="saveCar($event)"
+      (cancelled)="cancel()">
+    </mdv2-details>
+  </div>
+</div>
